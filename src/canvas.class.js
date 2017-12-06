@@ -1264,6 +1264,15 @@
         }
       }
 
+
+      if (this.Referentiel != null) {
+        this.referentiel = this.referentiel || new this.Referentiel(this.lowerCanvasEl.parentElement);
+        var point = this.referentiel.global_to_local([pointer.x, pointer.y]);
+        pointer.x = point[0];
+        pointer.y = point[1];
+        return pointer;
+      }
+
       this.calcOffset();
 
       pointer.x = pointer.x - this._offset.left;
